@@ -14,21 +14,33 @@ tk = Tk()
 # intégré (ici l'environnement Tkinter)
 # Les trois autres paramètres permettent de spécifier la taille et la couleur
 # de fond du canevas
-def computeNextFrame(numFrame, coordonnee):
+def computeNextFrame(numFrame,coordonnee):
     """ print(numFrame) """
     numFrame= numFrame + 1
     can.delete('all')
+    for i in range (len(coordonnee)-1,0,-1):
+        coordonnee[i][0] = coordonnee[i-1][0]
+        coordonnee[i][1] = coordonnee[i-1][1]
+    reference = can.create_rectangle(coordonnee[0], coordonnee[1]+20, coordonnee[0]+20, coordonnee[1], fill='red', outline='yellow')
+    rectangle1 = can.create_rectangle(coordonnee[0]+20, coordonnee[1]+20, coordonnee[0]+40, coordonnee[1], fill='green', outline='yellow')
+    rectangle2 = can.create_rectangle(coordonnee[0]+40, coordonnee[1]+20, coordonnee[0]+60, coordonnee[1], fill='white', outline='yellow') 
     if direction == 'left':
         coordonnee[0] = coordonnee[0] - 20
+        if coordonnee[0][0] < 0:
+            coordonnee[0][0] = 480
     elif direction == 'right':
         coordonnee[0] = coordonnee[0] + 20
+        if coordonnee[0][0] > 480:
+            coordonnee[0][0] = 0
     elif direction == 'up':
         coordonnee[1] = coordonnee[1] - 20
+        if coordonnee[0][1] < 0:
+            coordonnee[0][1] = 480
     elif direction == 'down':
         coordonnee[1] = coordonnee[1] + 20
-    can.create_rectangle(coordonnee[0], coordonnee[1]+20, coordonnee[0]+20, coordonnee[1], fill='red', outline='yellow')
-    can.create_rectangle(coordonnee[0]+20, coordonnee[1]+20, coordonnee[0]+40, coordonnee[1], fill='green', outline='yellow')
-    can.create_rectangle(coordonnee[0]+40, coordonnee[1]+20, coordonnee[0]+60, coordonnee[1], fill='white', outline='yellow')    
+        if coordonnee[0][1] > 480:
+            coordonnee[0][1] = 0
+    print(coordonnee[0], coordonnee[1])
     tk.after(100, lambda: computeNextFrame(numFrame, coordonnee))
 
 def right(event):
