@@ -27,8 +27,8 @@ def computeNextFrame(numFrame, coordonnee):
     elif direction == 'down':
         coordonnee[1] = coordonnee[1] + 20
     can.create_rectangle(coordonnee[0], coordonnee[1]+20, coordonnee[0]+20, coordonnee[1], fill='red', outline='yellow')
-    can.create_rectangle(coordonnee[0], coordonnee[1], coordonnee[0]+20, coordonnee[1]+20, fill='red', outline='yellow')
-    can.create_rectangle(coordonnee[0]+20, coordonnee[1], coordonnee[0]+40, coordonnee[1]+20, fill='red', outline='yellow')    
+    can.create_rectangle(coordonnee[0]+20, coordonnee[1]+20, coordonnee[0]+40, coordonnee[1], fill='green', outline='yellow')
+    can.create_rectangle(coordonnee[0]+40, coordonnee[1]+20, coordonnee[0]+60, coordonnee[1], fill='white', outline='yellow')    
     tk.after(100, lambda: computeNextFrame(numFrame, coordonnee))
 
 def right(event):
