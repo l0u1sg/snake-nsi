@@ -79,7 +79,7 @@ def computeNextFrame(numFrame,coordonnee, objet):
     for p in range(len(objet)):
         can.create_oval(objet[p][0], objet[p][1], objet[p][0] + 20, 
                          objet[p][1] + 20, outline= 'red', fill= 'green')   
- 
+        
     # Calcule une nouvelle frame dans 100 ms
     tk.after(100, lambda:computeNextFrame(numFrame,coordonnee, objet))
 
@@ -105,6 +105,7 @@ if __name__ == "__main__":
     x = randint(1,24)
     y = randint(1,24)
     objet.append([x*20, y*20, 0])
+    print(objet)
     
     # Construction de la première étape de simulation
     computeNextFrame(0,coordonnee, objet)
