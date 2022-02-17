@@ -116,4 +116,4 @@ if __name__ == "__main__":
     tk.bind('<Up>', up) 
     
     # lancement de la boucle principale qui écoute les évènements (claviers...)
-    tk.mainloop() # Cet appel doit être la derniere instruction du programme
+    tk.mainloop() # Cet appel doit être la dernière instruction du programme
