@@ -86,6 +86,17 @@ def computeNextFrame(numFrame,coordonnee, objet):
     # Calcule une nouvelle frame toute les 100 ms
     tk.after(100, lambda:computeNextFrame(numFrame,coordonnee, objet))
 
+def newGame():
+    global game_over
+    global b1
+    if game_over == True:
+       game_over = False
+    computeNextFrame(0,coordonnee, objet)
+    b1.destroy()
+    b1=Button(tk, text='Recommencer', command=newGame, bg='white' , fg='black', state='disabled')
+    b1.pack()
+    
+    
 
 if __name__ == "__main__":
     # On crée un canevas dans l'environnement Tkinter d'une taille de 500x500
@@ -102,20 +113,21 @@ if __name__ == "__main__":
     direction = 'up'
     coordonnee = [[200, 200], [200, 220], [200, 240], [220, 240] ]
     objet = []
-    
+    game_over = True
     # Premier objet (la pomme)
     x = randint(1,24)
     y = randint(1,24)
     aspect= randint(0,3)
-    objet.append([x*20, y*20, 0])q
+    objet.append([x*20, y*20, 0])
     
     
     # Construction de la première étape de simulation
-    b1 = Button(tk, text='Lancer', command=computeNextFrame(0,coordonnee, objet), bg='white' , fg='black')
-    b1.pack(side=LEFT, padx=5, pady=5)
+    b1=Button(tk, text='Lancer', command=newGame, bg='white' , fg='black')
+    b1.pack()
 
+    
     b2 = Button(tk, text='Quitter', command=tk.destroy, bg='white' , fg='black')
-    b2.pack(side=RIGHT, padx=5, pady =5)
+    b2.pack()
 
     tex1 = Label(tk, text="Cliquez sur 'Lancer' pour commencer le jeu.", bg='white' , fg='black')
     tex1.pack(padx=0, pady=11)
@@ -126,5 +138,5 @@ if __name__ == "__main__":
     tk.bind('<Down>', down) 
     tk.bind('<Up>', up) 
     
-    # lancement de la boucle principale qui écoute les évènements (claviers...)
+    # lancement de la boucle principale qui écoute les évènements (claviers..)
     tk.mainloop() # Cet appel doit être la derniere instruction du programme

@@ -181,3 +181,4 @@ if __name__=="__main__":
     # lancement de la boucle principale qui écoute les évènements (claviers...)
     tk.mainloop() # Cet appel doit être la derni ere instruction du programme
 
+coucou comment ça va enculer
