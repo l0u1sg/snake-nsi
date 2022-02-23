@@ -4,10 +4,13 @@ Programme Snake
 
 """
 from tkinter import * # Importation de la bibliothèque  Tkinter 
-from random import randint 
+from random import randint
+from PIL import Image, ImageTk 
 
 # On crée un environnement Tkinter
 tk = Tk()
+pomme = Image.open("Pomme.png") 
+pomme = ImageTk.PhotoImage(pomme)
 
 def right(event):
     # Modification de la variable globale direction
@@ -80,8 +83,16 @@ def computeNextFrame(numFrame,coordonnee, objet):
                          coordonnee[i][1] + 20, outline= ligne, fill= couleur)    
     # Dessine les objets
     for p in range(len(objet)):
-        can.create_oval(objet[p][0], objet[p][1], objet[p][0] + 20, 
-                         objet[p][1] + 20, outline= 'red', fill= 'green')
+        can.create_image(objet[0][0], objet[0][1], anchor = NW, image = pomme)
+
+    for j in range(len(objet)):
+        if coordonnee[0][0] == objet [0][0] and coordonnee[p][1] == objet [p][1]:
+            # Déplacement de la pomme
+            objet[0][0] = randint(1,24)* 20
+            objet[0][1] = randint(1,24)* 20
+            # Ajout d'un noeud au serpent (à la même place que le dernier noeud)
+            coordonnee.append([-20, -20]) # Caché pour l'instant
+
  
     # Calcule une nouvelle frame toute les 100 ms
     tk.after(100, lambda:computeNextFrame(numFrame,coordonnee, objet))

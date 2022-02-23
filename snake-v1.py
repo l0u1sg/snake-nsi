@@ -5,6 +5,7 @@ Programme Snake
 """
 from tkinter import * # Importation de la bibliothèque  Tkinter 
 from random import randint
+from PIL import Image, ImageTk
 
 # On crée un environnement Tkinter
 tk = Tk()

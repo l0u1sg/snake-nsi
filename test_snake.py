@@ -19,19 +19,19 @@ from random import randint
 from PIL import Image, ImageTk
 # On crée un environnement Tkinter
 tk = Tk()
-im_teteN = Image.open("teteN.png")
+im_teteN = Image.open("SH_UP.png")
 teteN = ImageTk.PhotoImage(im_teteN)
-im_teteS = Image.open("teteS.png")
+im_teteS = Image.open("SH_SOUTH.png")
 teteS = ImageTk.PhotoImage(im_teteS)
-im_teteE = Image.open("teteE.png")
+im_teteE = Image.open("SH_EST.png")
 teteE = ImageTk.PhotoImage(im_teteE)
-im_teteW = Image.open("teteW.png")
+im_teteW = Image.open("SH_WEST.png")
 teteW = ImageTk.PhotoImage(im_teteW)
 im_noeud1 = Image.open("noeud1.png")
 noeud1 = ImageTk.PhotoImage(im_noeud1)
 im_noeud2 = Image.open("noeud2.png")
 noeud2 = ImageTk.PhotoImage(im_noeud2)
-pomme = Image.open("pomme.png")
+pomme = Image.open("Pomme.png")
 pomme = ImageTk.PhotoImage(pomme)
 
 
@@ -181,4 +181,3 @@ if __name__=="__main__":
     # lancement de la boucle principale qui écoute les évènements (claviers...)
     tk.mainloop() # Cet appel doit être la derni ere instruction du programme
 
-coucou comment ça va enculer
