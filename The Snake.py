@@ -9,7 +9,17 @@ from PIL import Image, ImageTk
 
 # On crée un environnement Tkinter
 tk = Tk()
-pomme = Image.open("Pomme.png") 
+im_teteN = Image.open("img-snake/SH_UP.png")
+teteN = ImageTk.PhotoImage(im_teteN)
+im_teteS = Image.open("img-snake/SH_SOUTH.png")
+teteS = ImageTk.PhotoImage(im_teteS)
+im_teteE = Image.open("img-snake/SH_EST.png")
+teteE = ImageTk.PhotoImage(im_teteE)
+im_teteW = Image.open("img-snake/SH_WEST.png")
+teteW = ImageTk.PhotoImage(im_teteW)
+im_noeud1 = Image.open("img-snake/corps.png")
+noeud1 = ImageTk.PhotoImage(im_noeud1)
+pomme = Image.open("img-snake/Pomme.png")
 pomme = ImageTk.PhotoImage(pomme)
 
 def right(event):
@@ -50,37 +60,33 @@ def computeNextFrame(numFrame,coordonnee, objet):
     # Mise à jour des coordonnées
     if direction == 'right':
         coordonnee[0][0] += 20
+        can.create_image(coordonnee[0][0], coordonnee[0][1], anchor = NW, image = teteE)
         if coordonnee[0][0] > 480:
             coordonnee[0][0] = 0
             
     if direction == 'left':
         coordonnee[0][0] += -20
+        can.create_image(coordonnee[0][0], coordonnee[0][1], anchor = NW, image = teteW)
         if coordonnee[0][0] < 0:
             coordonnee[0][0] = 480
             
     if direction == 'up':
         coordonnee[0][1] += -20
+        can.create_image(coordonnee[0][0], coordonnee[0][1], anchor = NW, image = teteN)
         if coordonnee[0][1] < 0:
             coordonnee[0][1] = 480
             
     if direction == 'down':
         coordonnee[0][1] += 20
+        can.create_image(coordonnee[0][0], coordonnee[0][1], anchor = NW, image = teteS)
         if coordonnee[0][1] > 480:
             coordonnee[0][1] = 0
-
-    # Dessin de la tête du serpent et de noeuds
-    can.create_rectangle(coordonnee[0][0], coordonnee[0][1], coordonnee[0][0] + 20, 
-                         coordonnee[0][1] + 20, outline='yellow', fill='red')
     
-    for i in range(1,len(coordonnee)):
-        if i%2 == 0: 
-            ligne = 'blue'
-            couleur = 'green'
+    for n in range(1,len(coordonnee)):
+        if n%2 == 0:
+            can.create_image(coordonnee[n][0], coordonnee[n][1], anchor = NW, image = noeud1)
         else:
-            ligne = 'green'
-            couleur = 'blue'
-        can.create_rectangle(coordonnee[i][0], coordonnee[i][1], coordonnee[i][0] + 20, 
-                         coordonnee[i][1] + 20, outline= ligne, fill= couleur)    
+            can.create_image(coordonnee[n][0], coordonnee[n][1], anchor = NW, image = noeud1)   
     # Dessine les objets
     for p in range(len(objet)):
         can.create_image(objet[0][0], objet[0][1], anchor = NW, image = pomme)
@@ -150,4 +156,4 @@ if __name__ == "__main__":
     tk.bind('<Up>', up) 
     
     # lancement de la boucle principale qui écoute les évènements (claviers..)
-    tk.mainloop() # Cet appel doit être la derniere instruction du programme
+    tk.mainloop() # Cet appel doit être la derniere instruction du programme

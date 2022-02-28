@@ -19,19 +19,19 @@ from random import randint
 from PIL import Image, ImageTk
 # On crée un environnement Tkinter
 tk = Tk()
-im_teteN = Image.open("SH_UP.png")
+im_teteN = Image.open("img-snake/SH_UP.png")
 teteN = ImageTk.PhotoImage(im_teteN)
-im_teteS = Image.open("SH_SOUTH.png")
+im_teteS = Image.open("img-snake/SH_SOUTH.png")
 teteS = ImageTk.PhotoImage(im_teteS)
-im_teteE = Image.open("SH_EST.png")
+im_teteE = Image.open("img-snake/SH_EST.png")
 teteE = ImageTk.PhotoImage(im_teteE)
-im_teteW = Image.open("SH_WEST.png")
+im_teteW = Image.open("img-snake/SH_WEST.png")
 teteW = ImageTk.PhotoImage(im_teteW)
-im_noeud1 = Image.open("noeud1.png")
+im_noeud1 = Image.open("img-snake/corps.png")
 noeud1 = ImageTk.PhotoImage(im_noeud1)
-im_noeud2 = Image.open("noeud2.png")
+im_noeud2 = Image.open("img-snake/corps.png")
 noeud2 = ImageTk.PhotoImage(im_noeud2)
-pomme = Image.open("Pomme.png")
+pomme = Image.open("img-snake/Pomme.png")
 pomme = ImageTk.PhotoImage(pomme)
 
 
