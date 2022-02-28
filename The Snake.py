@@ -19,8 +19,30 @@ im_teteW = Image.open("img-snake/SH_WEST.png")
 teteW = ImageTk.PhotoImage(im_teteW)
 im_noeud1 = Image.open("img-snake/corps.png")
 noeud1 = ImageTk.PhotoImage(im_noeud1)
-pomme = Image.open("img-snake/Pomme.png")
-pomme = ImageTk.PhotoImage(pomme)
+# On crée les images des powerups
+im_type_script = Image.open("logo-languages/typescript.png")
+im_type_script = ImageTk.PhotoImage(im_type_script)
+im_java_script = Image.open("logo-languages/javascript.png")
+im_java_script = ImageTk.PhotoImage(im_java_script)
+im_java = Image.open("logo-languages/java.png")
+im_java = ImageTk.PhotoImage(im_java)
+im_python = Image.open("logo-languages/python.png")
+im_python = ImageTk.PhotoImage(im_python)
+im_rust = Image.open("logo-languages/rust.png")
+im_rust = ImageTk.PhotoImage(im_rust)
+im_csharp = Image.open("logo-languages/c-sharp.png")
+im_csharp = ImageTk.PhotoImage(im_csharp)
+im_lolcode = Image.open("logo-languages/lolcode.png")
+im_lolcode = ImageTk.PhotoImage(im_lolcode)
+im_matlab = Image.open("logo-languages/matlab.png")
+im_matlab = ImageTk.PhotoImage(im_matlab)
+im_swift = Image.open("logo-languages/swift.png")
+im_swift = ImageTk.PhotoImage(im_swift)
+
+niv1 = [im_type_script, im_java_script, im_rust]
+niv2 = [im_java, im_matlab, im_lolcode]
+niv3 = [im_python, im_csharp, im_swift]
+
 
 def right(event):
     # Modification de la variable globale direction
@@ -89,39 +111,22 @@ def computeNextFrame(numFrame,coordonnee,objet):
         else:
             can.create_image(coordonnee[n][0], coordonnee[n][1], anchor = NW, image = noeud1)   
     # Dessine les objets
+    niv2choice = randint(0,len(niv2) -1)
     for p in range(len(objet)):
-        can.create_image(objet[0][0], objet[0][1], anchor = NW, image = pomme)
-
+        if aspect == 0:
+            can.create_image(objet[0][0], objet[0][1], anchor = NW, image = niv2[niv2choice])
+        else :
+            print("caca")
+            
     for j in range(len(objet)):
         if coordonnee[0][0] == objet [0][0] and coordonnee[p][1] == objet [p][1]:
-            if aspect == 0:
-                print("rien à foutre")
-                objet[0][0] = randint(1,24)* 20
-                objet[0][1] = randint(1,24)* 20
-                aspect = randint(0,3)
-                objet[0][2] = aspect
-            elif aspect == 1:
-                print("Aie")
-                objet[0][0] = randint(1,24)* 20
-                objet[0][1] = randint(1,24)* 20
-                aspect = randint(0,3)
-                objet[0][2] = aspect
-            elif aspect == 2:
-                print("Aie un peu plus")
-                objet[0][0] = randint(1,24)* 20
-                objet[0][1] = randint(1,24)* 20
-                aspect = randint(0,3)
-                objet[0][2] = aspect
-            elif aspect == 3:
-                print("Merde, je suis mort")
-                objet[0][0] = randint(1,24)* 20
-                objet[0][1] = randint(1,24)* 20
-                aspect = randint(0,3)
-                objet[0][2] = aspect
+            objet[0][0] = randint(1,24)* 20
+            objet[0][1] = randint(1,24)* 20
+            objet[0][2] = aspect
             # Déplacement de la pomme
-
+            coordonnee.append([-20, -20])
             # Ajout d'un noeud au serpent (à la même place que le dernier noeud)
-            coordonnee.append([-20, -20]) # Caché pour l'instant
+             # Caché pour l'instant
 
  
     # Calcule une nouvelle frame toute les 100 ms
@@ -158,7 +163,7 @@ if __name__ == "__main__":
     # Premier objet (la pomme)
     x = randint(1,24)
     y = randint(1,24)
-    aspect = randint(0,3)
+    aspect = 0
     objet.append([x*20, y*20, aspect])
     
     
