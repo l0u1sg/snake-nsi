@@ -43,8 +43,9 @@ def up(event):
     direction = 'up'
 
 # Calcule la nouvelle frame de jeu
-def computeNextFrame(numFrame,coordonnee, objet):
+def computeNextFrame(numFrame,coordonnee,objet):
     global direction
+    global aspect
     # Affiche le numérod de la frame
     #print(numFrame)
     numFrame = numFrame + 1
@@ -93,9 +94,32 @@ def computeNextFrame(numFrame,coordonnee, objet):
 
     for j in range(len(objet)):
         if coordonnee[0][0] == objet [0][0] and coordonnee[p][1] == objet [p][1]:
+            if aspect == 0:
+                print("rien à foutre")
+                objet[0][0] = randint(1,24)* 20
+                objet[0][1] = randint(1,24)* 20
+                aspect = randint(0,3)
+                objet[0][2] = aspect
+            elif aspect == 1:
+                print("Aie")
+                objet[0][0] = randint(1,24)* 20
+                objet[0][1] = randint(1,24)* 20
+                aspect = randint(0,3)
+                objet[0][2] = aspect
+            elif aspect == 2:
+                print("Aie un peu plus")
+                objet[0][0] = randint(1,24)* 20
+                objet[0][1] = randint(1,24)* 20
+                aspect = randint(0,3)
+                objet[0][2] = aspect
+            elif aspect == 3:
+                print("Merde, je suis mort")
+                objet[0][0] = randint(1,24)* 20
+                objet[0][1] = randint(1,24)* 20
+                aspect = randint(0,3)
+                objet[0][2] = aspect
             # Déplacement de la pomme
-            objet[0][0] = randint(1,24)* 20
-            objet[0][1] = randint(1,24)* 20
+
             # Ajout d'un noeud au serpent (à la même place que le dernier noeud)
             coordonnee.append([-20, -20]) # Caché pour l'instant
 
@@ -134,8 +158,8 @@ if __name__ == "__main__":
     # Premier objet (la pomme)
     x = randint(1,24)
     y = randint(1,24)
-    aspect= randint(0,3)
-    objet.append([x*20, y*20, 0])
+    aspect = randint(0,3)
+    objet.append([x*20, y*20, aspect])
     
     
     # Construction de la première étape de simulation
