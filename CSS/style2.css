@@ -1,0 +1,64 @@
+.menu{
+    background-color :#C44646;
+    width: 100%;
+    height: 66px;
+    line-height: 66px;
+    width: 100%;
+}
+
+.gauche{
+    float: left;
+}
+.logo{
+    margin: 0;padding: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Fredoka;
+    font-weight: 900;
+    font-size: 35px;
+    letter-spacing: 1px;
+}
+.droite{
+    float: right;
+}
+
+.m-link{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0;margin: 0 15px;
+}
+a.m-link:hover { /*Pour faire une animation des boutons de navigation*/ 
+color: black;
+}
+.m-link2{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0;margin: 0 15px;
+}
+a.m-link2:hover { /*Pour faire une animation des boutons de navigation ici pour partir sur "le facebook du site"*/ 
+color: red;
+}
+
+html, body{
+    margin: 0;padding: 0;
+    font-family: 'Lato';
+}
+.centre{
+    width: 80%;
+    margin: auto;
+}
+
+th,td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color :#d2caca;
+  padding: 40px;
+  text-align: center;   
+}
+table{
+    margin: auto;
+}

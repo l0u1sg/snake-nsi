@@ -31,7 +31,7 @@ im_noeud1 = Image.open("img-snake/corps.png")
 noeud1 = ImageTk.PhotoImage(im_noeud1)
 im_noeud2 = Image.open("img-snake/corps.png")
 noeud2 = ImageTk.PhotoImage(im_noeud2)
-pomme = Image.open("img-snake/Pomme.png")
+pomme = Image.open("img-snake/poison.png")
 pomme = ImageTk.PhotoImage(pomme)
 
 

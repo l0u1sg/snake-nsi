@@ -1,0 +1,98 @@
+body{
+	padding-top: 50px;
+	text-align: center;
+	background-image: url(back-black.jpg);
+	background-color: #000;
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+.button{
+	float: center;
+	padding: 23px 95px;  
+	font-size: 50px;
+	border-radius: 12px ;
+	text-transform: none;
+	color: #fff;
+	background-color: #00a8ff;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 9px #0097e6;
+	outline: none;
+	text-decoration: none;
+	display: inlineblock center;
+
+}
+.button1{ 
+	padding:8px 30px; 
+	border-radius: 12px ;
+	font-size: 20px;
+	color: black;
+    outline: none;
+    text-decoration: none;
+    background-color: gray;
+    border-color: black;
+    border-width: 3px;
+}
+.button2{ 
+	padding:7px 15px; 
+	border-radius: 12px ;
+	font-size: 12px;
+	color: black;
+    outline: none;
+    text-decoration: none;
+}
+h1{
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fff;
+	font-size: 3em;
+	position: center;
+
+}
+h2{
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 3em;
+	color: #fff;
+	outline: none;
+	letter-spacing: 2px;
+	position: center;
+
+}
+
+h3{
+	color: #fff;
+	float: center;
+
+}
+
+h4{
+
+	color: #fff;
+	float: center;
+	font-size: 2.5em;
+}
+
+.div5{
+	position: center;
+	text-decoration: underline #C44646;
+}
+
+
+form {
+	/* Uniquement centrer le formulaire sur la page */
+	margin: 0 auto;
+	width: 400px;
+	/* Encadré pour voir les limites du formulaire */
+	padding: 1em;
+	border: 3px solid #fff;
+	border-radius: 3em;
+	background-color :#C44646;
+ }
+
+.contact{
+	color: white;
+	font-size: 20px;
+	text-decoration: underline #fff;
+}
