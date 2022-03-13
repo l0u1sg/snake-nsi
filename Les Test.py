@@ -19,19 +19,19 @@ from random import randint
 from PIL import Image, ImageTk
 # On crée un environnement Tkinter
 tk = Tk()
-im_teteN = Image.open("teteN.png")
+im_teteN = Image.open("img-snake/SH_UP.png")
 teteN = ImageTk.PhotoImage(im_teteN)
-im_teteS = Image.open("teteS.png")
+im_teteS = Image.open("img-snake/SH_SOUTH.png")
 teteS = ImageTk.PhotoImage(im_teteS)
-im_teteE = Image.open("teteE.png")
+im_teteE = Image.open("img-snake/SH_EST.png")
 teteE = ImageTk.PhotoImage(im_teteE)
-im_teteW = Image.open("teteW.png")
+im_teteW = Image.open("img-snake/SH_WEST.png")
 teteW = ImageTk.PhotoImage(im_teteW)
-im_noeud1 = Image.open("noeud1.png")
+im_noeud1 = Image.open("img-snake/corps.png")
 noeud1 = ImageTk.PhotoImage(im_noeud1)
-im_noeud2 = Image.open("noeud2.png")
+im_noeud2 = Image.open("img-snake/corps.png")
 noeud2 = ImageTk.PhotoImage(im_noeud2)
-pomme = Image.open("pomme.png")
+pomme = Image.open("img-snake/poison.png")
 pomme = ImageTk.PhotoImage(pomme)
 
 
@@ -66,14 +66,15 @@ def up(event):
 
 def computeNextFrame(numFrame,coordonnee, objet):
     global direction
+    global game_over
     # Affiche le numéro de la frame
     #print(numFrame)
     numFrame = numFrame + 1
 
     can.delete("all")
 
-    for n in range (len(coordonnee)-1,0,-1):
-        coordonnee[n] = list(coordonnee[n-1])
+    for i in range (len(coordonnee)-1,0,-1):
+        coordonnee[i] = list(coordonnee[i-1])
 
         # Mise à jour des coordonnées
     if direction == 'right':
@@ -133,7 +134,12 @@ def computeNextFrame(numFrame,coordonnee, objet):
             tk.after(100, lambda: computeNextFrame(numFrame,coordonnee, objet))
         elif difficulte==3:
             tk.after(50, lambda: computeNextFrame(numFrame,coordonnee, objet))
-
+def newGame():
+    global game_over
+    if game_over == True:
+       game_over = False
+    computeNextFrame(0,coordonnee, objet)
+    
 if __name__=="__main__":
     # On crée un environnement Tkinter
     # On crée un canevas dans l'environnement Tkinter d'une taille de 500x500
@@ -157,10 +163,16 @@ if __name__=="__main__":
     y = randint(1,24)
     x2 = randint(1,24)
     y2 = randint(1,24)
-
+    game_over = True
     objet = [x*20, y*20]
+    b1 = Button(tk, text='Lancer',command=newGame, bg='white' , fg='black')
+    b1.pack(side=LEFT, padx=5, pady=5)
 
-    computeNextFrame(0,coordonnee, objet)
+    b2 = Button(tk, text='Quitter', command=tk.destroy, bg='white' , fg='black')
+    b2.pack(side=RIGHT, padx=5, pady =5)
+
+    tex1 = Label(tk, text="Cliquez sur 'Lancer' pour commencer le jeu.", bg='white' , fg='black')
+    tex1.pack(padx=0, pady=11)
 
     tk.bind('<d>', right)
     tk.bind('<q>', left)
